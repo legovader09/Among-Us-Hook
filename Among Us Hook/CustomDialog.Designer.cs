@@ -74,7 +74,7 @@
             this.Name = "CustomDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dialog";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.CustomDialog_Load);
