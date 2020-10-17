@@ -45,15 +45,12 @@ namespace Among_Us_Hook
         {
             try
             {
-                var dia = new CustomDialog
+                var dia = new CustomDialog()
                 {
                     PromptMsg = "Please enter your Webhook URL:",
                     title = "Enter Webhook URL",
+                    returnVal = Properties.Settings.Default.WebhookURL
                 };
-                if (Properties.Settings.Default.WebhookURL != "")
-                {
-                    dia.returnVal = Properties.Settings.Default.WebhookURL;
-                }
 
                 if (dia.ShowDialog() == DialogResult.OK)
                 {
@@ -61,19 +58,16 @@ namespace Among_Us_Hook
                 }
                 dia.Dispose();
 
-                var dia2 = new CustomDialog
+                var dia2 = new CustomDialog()
                 {
                     PromptMsg = "Please enter your voice channel ID:",
-                    title = "Enter Voice Channel ID"
+                    title = "Enter Voice Channel ID",
+                    returnVal = Properties.Settings.Default.VChannelID
                 };
-                if (Properties.Settings.Default.VChannelID != "")
-                {
-                    dia.returnVal = Properties.Settings.Default.VChannelID;
-                }
 
                 if (dia2.ShowDialog() == DialogResult.OK)
                 {
-                    Properties.Settings.Default.VChannelID = dia.returnVal;
+                    Properties.Settings.Default.VChannelID = dia2.returnVal;
                 }
                 dia2.Dispose();
 
@@ -88,17 +82,16 @@ namespace Among_Us_Hook
             checkBox1.Checked = Properties.Settings.Default.TopMost;
             checkBox2.Checked = Properties.Settings.Default.CheckWebhook;
             TopMost = checkBox1.Checked;
-            Connect();
 
             if (Properties.Settings.Default.WebhookURL == "" || Properties.Settings.Default.VChannelID == "")
             {
-                if (RunSetup())
-                {
-                    channelID = Properties.Settings.Default.VChannelID;
-                    webHook = Properties.Settings.Default.WebhookURL;
-                }
-                else { RunSetup(); }
+                RunSetup();
             }
+
+            channelID = Properties.Settings.Default.VChannelID;
+            webHook = Properties.Settings.Default.WebhookURL;
+
+            Connect();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -146,6 +139,9 @@ namespace Among_Us_Hook
         private void button4_Click(object sender, EventArgs e)
         {
             RunSetup();
+
+            channelID = Properties.Settings.Default.VChannelID;
+            webHook = Properties.Settings.Default.WebhookURL;
         }
     }
 }

@@ -18,15 +18,19 @@ namespace Among_Us_Hook
         public CustomDialog()
         {
             InitializeComponent();
-            Text = title;
-            label1.Text = PromptMsg;
-            textBox1.Text = returnVal;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.returnVal = textBox1.Text;
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void CustomDialog_Load(object sender, EventArgs e)
+        {
+            Text = title;
+            label1.Text = PromptMsg;
+            textBox1.Text = returnVal;
         }
     }
 }
