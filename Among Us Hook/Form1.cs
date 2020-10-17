@@ -24,7 +24,7 @@ namespace Among_Us_Hook
                 dcWeb.WebHook = webHook;
                 dcWeb.AppID = "DoomniksAmongUsHook";
 
-                if (checkBox2.Checked) { dcWeb.SendMessageAsync("auwebhook"); UpdateStatus("Established Webhook.", Color.Green); }
+                if (checkBox2.Checked) { if (dcWeb.SendMessageAsync("auwebhook")) { UpdateStatus("Established Webhook.", Color.Green); } }
 
                 return true;
             }
@@ -97,6 +97,7 @@ namespace Among_Us_Hook
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.TopMost = checkBox1.Checked;
+            TopMost = checkBox1.Checked;
             Properties.Settings.Default.Save();
         }
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

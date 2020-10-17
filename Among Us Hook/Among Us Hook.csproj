@@ -100,8 +100,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bin\Debug\Among Us Hook.exe.config" />
-    <None Include="bin\Release\Among Us Hook.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,12 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\favicon %281%29.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\Among Us Hook.exe" />
-    <Content Include="bin\Debug\Among Us Hook.pdb" />
-    <Content Include="bin\Release\Among Us Hook.exe" />
-    <Content Include="bin\Release\Among Us Hook.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
