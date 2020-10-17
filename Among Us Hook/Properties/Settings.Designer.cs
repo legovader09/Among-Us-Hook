@@ -34,5 +34,17 @@ namespace Among_Us_Hook.Properties {
                 this["TopMost"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CheckWebhook {
+            get {
+                return ((bool)(this["CheckWebhook"]));
+            }
+            set {
+                this["CheckWebhook"] = value;
+            }
+        }
     }
 }
