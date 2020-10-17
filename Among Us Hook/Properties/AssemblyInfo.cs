@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Among Us Hook")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Uses webhook from Among Us Bot to mute/unmute everyone.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Dominik Hauerstein")]
 [assembly: AssemblyProduct("Among Us Hook")]
 [assembly: AssemblyCopyright("Copyright © Dominik Hauerstein 2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Dominik Hauerstein")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

@@ -6,8 +6,8 @@ namespace Among_Us_Hook
 {
     public partial class Form1 : Form
     {
-        private static readonly string webHook = "https://discord.com/api/webhooks/767012934806274058/z87rHyTBsgD_ldVKPndVK8L0WQdhX4YwWfaDcK9Fp4sNJEVQ8dkDx2dc5CsRl4neENFV";
-        private static readonly string channelID = "764643880762081301";
+        private static string webHook = "";
+        private static string channelID = "";
         internal bool micMuted = false;
         protected dWebHook dcWeb = new dWebHook();
         public Form1()
@@ -41,12 +41,64 @@ namespace Among_Us_Hook
             lblStatus.ForeColor = colour;
         }
 
+        public bool RunSetup()
+        {
+            try
+            {
+                var dia = new CustomDialog
+                {
+                    PromptMsg = "Please enter your Webhook URL:",
+                    title = "Enter Webhook URL",
+                };
+                if (Properties.Settings.Default.WebhookURL != "")
+                {
+                    dia.returnVal = Properties.Settings.Default.WebhookURL;
+                }
+
+                if (dia.ShowDialog() == DialogResult.OK)
+                {
+                    Properties.Settings.Default.WebhookURL = dia.returnVal;
+                }
+                dia.Dispose();
+
+                var dia2 = new CustomDialog
+                {
+                    PromptMsg = "Please enter your voice channel ID:",
+                    title = "Enter Voice Channel ID"
+                };
+                if (Properties.Settings.Default.VChannelID != "")
+                {
+                    dia.returnVal = Properties.Settings.Default.VChannelID;
+                }
+
+                if (dia2.ShowDialog() == DialogResult.OK)
+                {
+                    Properties.Settings.Default.VChannelID = dia.returnVal;
+                }
+                dia2.Dispose();
+
+                Properties.Settings.Default.Save();
+                return true;
+            }
+            catch { return false; }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             checkBox1.Checked = Properties.Settings.Default.TopMost;
             checkBox2.Checked = Properties.Settings.Default.CheckWebhook;
             TopMost = checkBox1.Checked;
             Connect();
+
+            if (Properties.Settings.Default.WebhookURL == "" || Properties.Settings.Default.VChannelID == "")
+            {
+                if (RunSetup())
+                {
+                    channelID = Properties.Settings.Default.VChannelID;
+                    webHook = Properties.Settings.Default.WebhookURL;
+                }
+                else { RunSetup(); }
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -84,7 +136,6 @@ namespace Among_Us_Hook
                 micMuted = false;
                 UpdateStatus("Game Ended.", Color.Red);
             }
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -92,5 +143,9 @@ namespace Among_Us_Hook
             if (micMuted) { dcWeb.SendMessageAsync($"auwebhook end {channelID}"); }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            RunSetup();
+        }
     }
 }
