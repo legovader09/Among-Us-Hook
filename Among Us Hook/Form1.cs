@@ -22,9 +22,9 @@ namespace Among_Us_Hook
                 dcWeb.ProfilePicture = "";
                 dcWeb.UserName = "Hooks";
                 dcWeb.WebHook = webHook;
-                dcWeb.AppID = "DomsAmongUsHook";
+                dcWeb.AppID = "DoomniksAmongUsHook";
 
-                if (checkBox2.Checked) { dcWeb.SendMessageAsync("au webhook"); UpdateStatus("Established Webhook.", Color.Green); }
+                if (checkBox2.Checked) { dcWeb.SendMessageAsync("auwebhook"); UpdateStatus("Established Webhook.", Color.Green); }
 
                 return true;
             }
