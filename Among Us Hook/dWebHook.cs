@@ -22,15 +22,24 @@ namespace Among_Us_Hook
             dWebClient = new WebClient();
         }
 
-        public void SendMessageAsync(string msgSend)
+        public bool SendMessageAsync(string msgSend)
         {
-            discordValues.Add("username", UserName);
-            discordValues.Add("avatar_url", ProfilePicture);
-            discordValues.Add("content", msgSend);
-            discordValues.Add("application_id", AppID);
+            try
+            {
+                discordValues.Add("username", UserName);
+                discordValues.Add("avatar_url", ProfilePicture);
+                discordValues.Add("content", msgSend);
+                discordValues.Add("application_id", AppID);
 
-            dWebClient.UploadValuesAsync(new Uri(WebHook), "POST", discordValues);
-            discordValues.Clear();
+                dWebClient.UploadValuesAsync(new Uri(WebHook), "POST", discordValues);
+                discordValues.Clear(); 
+                return true;
+            } 
+            catch
+            {
+                discordValues.Clear();
+                return false;
+            }
         }
 
         public void Dispose()

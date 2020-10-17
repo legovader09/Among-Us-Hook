@@ -53,19 +53,10 @@ namespace Among_Us_Hook
             Connect();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dcWeb.SendMessageAsync($"auwebhook mute {channelID}");
-        }
+        private void button1_Click(object sender, EventArgs e) => dcWeb.SendMessageAsync($"auwebhook mute {channelID}");
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            dcWeb.SendMessageAsync($"auwebhook unmute {channelID}");
-        }
+        private void button2_Click(object sender, EventArgs e) => dcWeb.SendMessageAsync($"auwebhook unmute {channelID}");
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            dcWeb.SendMessageAsync($"auwebhook end {channelID}");
-        }
+        private void button3_Click(object sender, EventArgs e) => dcWeb.SendMessageAsync($"auwebhook end {channelID}");
     }
 }
