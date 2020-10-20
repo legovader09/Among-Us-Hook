@@ -19,5 +19,6 @@ Screenshot: [[Imgur]](https://i.imgur.com/2pqJuaW_d.webp?maxwidth=728&fidelity=g
 Note: If everyone is muted and the app is accidentally closed, everybody will be automatically unmuted.
 Also, the unmute function may lag behind if you are in a full lobby. This is due to a fault with the Among Us Bot, and not with this app. The best workaround for now is double clicking the "Unmute" button.
 
-[Download Link Here](https://github.com/legovader09/Among-Us-Hook/releases)
+[Download Link](https://github.com/legovader09/Among-Us-Hook/releases)
+
 [VirusTotal Scan](https://www.virustotal.com/gui/url/2ff274446ac5eb405f97a307744dbe50de8f64ce3bd05855d7e3df4b01f9a792/detection)
